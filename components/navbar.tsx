@@ -5,11 +5,18 @@ import {
   Box,
   Flex,
   HStack,
+  VStack,
   Link,
   useDisclosure,
   useColorModeValue,
+  IconButton,
+  Icon,
+  Heading,
 } from "@chakra-ui/react";
 import LDmode from "./lightdarkmode";
+import About from "@/app/about/page";
+import { HamburgerIcon } from "@chakra-ui/icons";
+import { NavDrawer } from "./nav-drawer";
 
 // List of links to pass to a function to auto generate
 // const Links = ["HOME", "OUR PROJECTS", "CONTACT US", "ABOUT"];
@@ -36,7 +43,7 @@ export default function Navbar() {
     <>
       <Box bg={useColorModeValue("#F8F8F6", "#1B1B1B")} px={4} py={5}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-          <Box px={10}></Box>
+          <NavDrawer></NavDrawer>
 
           <HStack
             as={"nav"}
