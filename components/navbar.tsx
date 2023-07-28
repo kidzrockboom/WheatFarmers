@@ -6,7 +6,6 @@ import {
   Flex,
   HStack,
   VStack,
-  Link,
   useDisclosure,
   useColorModeValue,
   IconButton,
@@ -14,9 +13,9 @@ import {
   Heading,
 } from "@chakra-ui/react";
 import LDmode from "./lightdarkmode";
-import About from "@/app/about/page";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { NavDrawer } from "./nav-drawer";
+import Link from "next/link";
 
 // List of links to pass to a function to auto generate
 // const Links = ["HOME", "OUR PROJECTS", "CONTACT US", "ABOUT"];
@@ -54,7 +53,7 @@ export default function Navbar() {
             {/* {Links.map((link) => (
               <NavLink key={link}>{link}</NavLink>
             ))} */}
-            <Link
+            <Heading
               fontWeight={"bold"}
               fontSize={14}
               px={10}
@@ -64,11 +63,10 @@ export default function Navbar() {
                 textDecoration: "none",
                 color: useColorModeValue("gray.800", "white"),
               }}
-              href={"/"}
             >
-              HOME
-            </Link>
-            <Link
+              <Link href={"/"}>HOME</Link>
+            </Heading>
+            <Heading
               fontWeight={"bold"}
               fontSize={14}
               px={10}
@@ -78,10 +76,9 @@ export default function Navbar() {
                 textDecoration: "none",
                 color: useColorModeValue("gray.800", "white"),
               }}
-              href={"/project"}
             >
-              OUR PROJECTS
-            </Link>
+              <Link href={"/project"}>OUR PROJECTS</Link>
+            </Heading>
 
             <Box px={10} marginTop={1}>
               {" "}
@@ -97,8 +94,8 @@ export default function Navbar() {
               </h1>
             </Box>
 
-            <Link
-              fontWeight={"semibold"}
+            <Heading
+              fontWeight={"bold"}
               fontSize={14}
               px={10}
               py={1}
@@ -107,12 +104,11 @@ export default function Navbar() {
                 textDecoration: "none",
                 color: useColorModeValue("gray.800", "white"),
               }}
-              href={"contact"}
             >
-              CONTACT US
-            </Link>
-            <Link
-              fontWeight={"semibold"}
+              <Link href={"#contact"}>CONTACT US</Link>
+            </Heading>
+            <Heading
+              fontWeight={"bold"}
               fontSize={14}
               px={10}
               py={1}
@@ -121,10 +117,9 @@ export default function Navbar() {
                 textDecoration: "none",
                 color: useColorModeValue("gray.800", "white"),
               }}
-              href={"/about"}
             >
-              ABOUT
-            </Link>
+              <Link href={"/about"}>ABOUT</Link>
+            </Heading>
           </HStack>
 
           <LDmode></LDmode>

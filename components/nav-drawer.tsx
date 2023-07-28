@@ -5,7 +5,7 @@ import {
   DrawerHeader,
   DrawerFooter,
   DrawerOverlay,
-  Link,
+  Heading,
   useDisclosure,
   IconButton,
   useColorModeValue,
@@ -15,6 +15,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
+import Link from "next/link";
 
 export function NavDrawer() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -39,7 +40,7 @@ export function NavDrawer() {
 
           <DrawerBody>
             <VStack as={"nav"} spacing={10} justifyContent={"space-between"}>
-              <Link
+              <Heading
                 fontWeight={"bold"}
                 fontSize={14}
                 px={10}
@@ -49,11 +50,10 @@ export function NavDrawer() {
                   textDecoration: "none",
                   color: useColorModeValue("gray.800", "white"),
                 }}
-                href={"/"}
               >
-                HOME
-              </Link>
-              <Link
+                <Link href={"/"}>HOME</Link>
+              </Heading>
+              <Heading
                 fontWeight={"bold"}
                 fontSize={14}
                 px={10}
@@ -63,13 +63,12 @@ export function NavDrawer() {
                   textDecoration: "none",
                   color: useColorModeValue("gray.800", "white"),
                 }}
-                href={"/project"}
               >
-                OUR PROJECTS
-              </Link>
+                <Link href={"/project"}>OUR PROJECTS</Link>
+              </Heading>
 
-              <Link
-                fontWeight={"bold"}
+              <Heading
+                fontWeight={"semibold"}
                 fontSize={14}
                 px={10}
                 py={1}
@@ -78,12 +77,11 @@ export function NavDrawer() {
                   textDecoration: "none",
                   color: useColorModeValue("gray.800", "white"),
                 }}
-                href={"contact"}
               >
-                CONTACT US
-              </Link>
-              <Link
-                fontWeight={"bold"}
+                <Link href={"#contact"}>CONTACT US</Link>
+              </Heading>
+              <Heading
+                fontWeight={"semibold"}
                 fontSize={14}
                 px={10}
                 py={1}
@@ -92,10 +90,9 @@ export function NavDrawer() {
                   textDecoration: "none",
                   color: useColorModeValue("gray.800", "white"),
                 }}
-                href={"/about"}
               >
-                ABOUT
-              </Link>
+                <Link href={"/about"}>ABOUT</Link>
+              </Heading>
             </VStack>
           </DrawerBody>
 
