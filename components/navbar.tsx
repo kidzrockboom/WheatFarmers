@@ -8,8 +8,11 @@ import {
   Link,
   useDisclosure,
   useColorModeValue,
+  VStack,
+  Container
 } from "@chakra-ui/react";
 import LDmode from "./lightdarkmode";
+import { cp } from "fs";
 
 // List of links to pass to a function to auto generate
 // const Links = ["HOME", "OUR PROJECTS", "CONTACT US", "ABOUT"];
@@ -32,9 +35,32 @@ import LDmode from "./lightdarkmode";
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const navLink = {
+    fontWeight:"semiBold",
+    fontSize:14,
+    px:10,
+    py:1,
+    rounded:"md",
+
+  }
+
+  const wheatNavName = {
+    fontSize: 24,
+    textIndent: 18,
+    letterSpacing: 10,
+    lineHeight: 1.2,
+  }
+  const farmersNavName = {
+    fontSize: 24,
+    textIndent: 18,
+    letterSpacing: 10,
+    lineHeight: 1.2,
+  }
+
   return (
     <>
-      <Box bg={useColorModeValue("#F8F8F6", "#1B1B1B")} px={4} py={5}>
+      <Box bg={useColorModeValue("#F6F6F8", "#1B1B1B")} px={4} py={5}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <Box px={10}></Box>
 
@@ -48,11 +74,7 @@ export default function Navbar() {
               <NavLink key={link}>{link}</NavLink>
             ))} */}
             <Link
-              fontWeight={"bold"}
-              fontSize={14}
-              px={10}
-              py={1}
-              rounded={"md"}
+              style={navLink}
               _hover={{
                 textDecoration: "none",
                 color: useColorModeValue("gray.800", "white"),
@@ -62,11 +84,7 @@ export default function Navbar() {
               HOME
             </Link>
             <Link
-              fontWeight={"bold"}
-              fontSize={14}
-              px={10}
-              py={1}
-              rounded={"md"}
+              style={navLink}
               _hover={{
                 textDecoration: "none",
                 color: useColorModeValue("gray.800", "white"),
@@ -76,26 +94,23 @@ export default function Navbar() {
               OUR PROJECTS
             </Link>
 
-            <Box px={10} marginTop={1}>
-              {" "}
-              <h1
-                style={{
-                  fontSize: 34,
-                  textIndent: 18,
-                  letterSpacing: 10,
-                  lineHeight: 1.2,
-                }}
-              >
-                <span style={{ fontWeight: "bold" }}>WHEAT</span> <br /> FARMERS
-              </h1>
-            </Box>
+            <VStack px={0} marginTop={1} >
+              <Container centerContent>
+                <h1
+                  style={wheatNavName}
+                >
+                  <span style={{ fontWeight: "bold" }}>WHEAT</span>
+                </h1>
+                <h1
+                  style={farmersNavName}
+                >
+                  <span style={{ fontWeight: "bold" }}>FARMERS</span>
+                </h1>
+              </Container>
+            </VStack>
 
             <Link
-              fontWeight={"semibold"}
-              fontSize={14}
-              px={10}
-              py={1}
-              rounded={"md"}
+              style={navLink}
               _hover={{
                 textDecoration: "none",
                 color: useColorModeValue("gray.800", "white"),
@@ -105,11 +120,7 @@ export default function Navbar() {
               CONTACT US
             </Link>
             <Link
-              fontWeight={"semibold"}
-              fontSize={14}
-              px={10}
-              py={1}
-              rounded={"md"}
+              style={navLink}
               _hover={{
                 textDecoration: "none",
                 color: useColorModeValue("gray.800", "white"),
